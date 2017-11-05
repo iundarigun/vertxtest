@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'br.com.devcave.vertxtest.vertx'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+ext{
+	lombokVersion = '1.16.18'
+	swaggerVersion = '2.6.1'
+	mysqlVersion = '6.0.5'
+	vertxVersion = '3.4.1'
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	compile group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: swaggerVersion
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: swaggerVersion
+	compile group: 'mysql', name: 'mysql-connector-java', version: mysqlVersion
+	compile group: 'io.vertx', name: 'vertx-web', version: vertxVersion
+}
